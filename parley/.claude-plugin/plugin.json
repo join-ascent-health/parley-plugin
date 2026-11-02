@@ -6,7 +6,7 @@
     "name": "Parley"
   },
   "homepage": "https://joinparley.ai",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "keywords": [
     "parley",
     "messaging",
