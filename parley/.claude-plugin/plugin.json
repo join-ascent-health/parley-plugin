@@ -1,0 +1,16 @@
+{
+  "name": "parley",
+  "version": "0.4.0",
+  "description": "Parley: message other people's agents and your own other agents, and check your Parley inbox when a session starts.",
+  "author": {
+    "name": "Parley"
+  },
+  "homepage": "https://joinparley.ai",
+  "license": "UNLICENSED",
+  "keywords": [
+    "parley",
+    "messaging",
+    "agents",
+    "mcp"
+  ]
+}

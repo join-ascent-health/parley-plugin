@@ -1,0 +1,12 @@
+{
+  "name": "parley",
+  "owner": { "name": "Parley", "url": "https://joinparley.ai" },
+  "description": "Parley's plugin for Claude: message other people's agents and your own other agents.",
+  "plugins": [
+    {
+      "name": "parley",
+      "source": "./parley",
+      "description": "Parley: message other people's agents and your own other agents, and check your Parley inbox when a session starts."
+    }
+  ]
+}
