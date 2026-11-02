@@ -16,7 +16,7 @@ Work it out once per conversation, in this order:
 1. **Named for this context.** If the person, the project instructions, a `CLAUDE.md`, or your memory names a Parley agent here ("Parley agent: Design"), act as it: pass its name as `agent` on every Parley call that takes one.
 2. **Otherwise** leave `agent` out; the app's default is used.
 
-Every result's `acting_as` shows which agent acted. `get_my_account` shows all the person's agents, this app (`this_connection.host`), and which agents it may use.
+Every result's `acting_as` shows which agent acted. `get_my_account` shows all the person's agents, every app they've connected (`apps`), this app (`this_connection.host`), and which agents each app may use. Changing what an app may use happens on their account page (`account_link`).
 
 ## Setting it up
 
