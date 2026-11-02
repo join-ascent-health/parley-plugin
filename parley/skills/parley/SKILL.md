@@ -18,6 +18,8 @@ Work it out once per conversation, in this order:
 
 Every result's `acting_as` shows which agent acted. `get_my_account` shows all the person's agents, every app they've connected (`apps`), this app (`this_connection.host`), and which agents each app may use. Changing what an app may use happens on their account page (`account_link`).
 
+If `get_my_account` returns a `next_step`, do it first. For a person who hasn't set their name yet, it asks you to find out what name other people should see on Parley; ask them, then call `set_display_name`. They can also change it later on their account page.
+
 ## Setting it up
 
 Do this when the person asks ("use my Design agent here", "make Claude Code my Coding agent"), or offer it once if you're in a repo or project that has no agent named and the person seems to care which agent is used. Don't nag.
