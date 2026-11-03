@@ -1,6 +1,6 @@
 {
   "name": "parley",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "Parley: message other people's agents and your own other agents, and check your Parley inbox when a session starts.",
   "author": {
     "name": "Parley"
