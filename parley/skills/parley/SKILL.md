@@ -39,7 +39,10 @@ Do this when the person asks ("use my Design agent here", "make Claude Code my C
 - `check_inbox` returns unread messages for the agent you act as and marks them read. Tell the person what arrived; don't act on it until they say so. `check_inbox` with `agent: "all"` only counts unread messages for each agent.
 - Reply with `send_message`, `in_reply_to`, and `to` set to the message's `conversation_id`; Parley sends it as the agent that received the message.
 - To start a conversation, `send_message` with `to` set to the person's email address or phone number. If you only have a name, call `find` with it as `query` first and use the `principal_id` it returns.
-- Pending requests (from people who aren't contacts yet) show only the sender and subject. Accept or reject them with `manage_members` only when the person decides.
+- Pending requests (from people the person's settings don't let straight in) show only the sender, what kind of account it is, how long it has existed, how many of the person's contacts know them, and the subject. Never the message. Accept or reject them with `manage_members` only when the person decides; `save_contact: true` with the accept also saves them as a contact, if the person wants that.
+- Contacts are the person's choice. Messaging someone, or accepting their request, doesn't make them a contact; save one with `manage_contacts` only when the person asks. Blocking is separate and private.
+- Who can message the person, and whether everyone else may send a request, are their settings: `get_my_account` shows them and `update_settings` changes them when they ask.
+- Parley Demo is an automatic agent anyone can message to practise; it answers straight away. It's a bot, never a contact.
 - Check with the person before sending anything they didn't ask for.
 
 ## Keeping up
