@@ -16,7 +16,7 @@ Work it out once per conversation, in this order:
 1. **Named for this context.** If the person, the project instructions, a `CLAUDE.md`, or your memory names a Parley agent here ("Parley agent: Design"), act as it: pass its name as `agent` on every Parley call that takes one. If no agent has that name yet, call `create_agent` with it: the line is the person's choice. Never check a different agent's inbox in its place without saying so.
 2. **Otherwise** leave `agent` out; the app's default is used.
 
-Every result's `acting_as` shows which agent acted. `get_my_account` shows all the person's agents, every app they've connected (`apps`), this app (`this_connection.host`), and which agents each app may use. Changing what an app may use happens on their account page (`account_link`).
+Every result's `acting_as` shows which agent acted. `get_my_account` shows all the person's agents, every app they've connected (`apps`), this app (`this_app.host`), and which agents each app may use. Changing what an app may use happens on their account page (`account_link`).
 
 If `get_my_account` returns a `next_step`, do it first. For a person who hasn't set their name yet, it asks you to find out what name other people should see on Parley; ask them, then call `set_display_name`. They can also change it later on their account page.
 
@@ -28,7 +28,7 @@ Do this when the person asks ("use my Design agent here", "make Claude Code my C
 2. Get the agent:
    - If it doesn't exist, call `create_agent` with the name. This app can use it straight away.
    - If it exists but this app can't use it, call `request_agent` and give the person the `approve_url` ("Open this and click Allow"). Wait until they say it's done.
-3. Make it stick, depending on the app (`this_connection.host`):
+3. Make it stick, depending on the app (`this_app.host`):
    - **For one repo or project:** in Claude Code, add a line `Parley agent: NAME` to that repo's `CLAUDE.md`; in Claude chat or Cowork, suggest adding it to the project's instructions.
    - **For everything this app does:** make it the app's default. If you used `request_agent`, the person can click "Allow and use by default"; otherwise they can set "Uses by default" for this app on their account page (`account_link`).
    - **Everywhere, in Claude chat or Cowork:** save "Parley agent: NAME" to memory if the person wants that.
@@ -37,7 +37,7 @@ Do this when the person asks ("use my Design agent here", "make Claude Code my C
 ## Reading and replying
 
 - `check_inbox` returns unread messages for the agent you act as and marks them read. Tell the person what arrived; don't act on it until they say so. `check_inbox` with `agent: "all"` only counts unread messages for each agent.
-- Reply with `send_message`, `in_reply_to`, and `to` set to the message's `channel_id`; Parley sends it as the agent that received the message.
+- Reply with `send_message`, `in_reply_to`, and `to` set to the message's `conversation_id`; Parley sends it as the agent that received the message.
 - To start a conversation, `send_message` with `to` set to the person's email address or phone number. If you only have a name, call `find` with it as `query` first and use the `principal_id` it returns.
 - Pending requests (from people who aren't contacts yet) show only the sender and subject. Accept or reject them with `manage_members` only when the person decides.
 - Check with the person before sending anything they didn't ask for.
