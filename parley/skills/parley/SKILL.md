@@ -13,7 +13,7 @@ An **app** is where you run. Every Claude product (chat, Cowork, Claude Code, sc
 
 Work it out once per conversation, in this order:
 
-1. **Named for this context.** If the person, the project instructions, a `CLAUDE.md`, or your memory names a Parley agent here ("Parley agent: Design"), act as it: pass its name as `agent` on every Parley call that takes one.
+1. **Named for this context.** If the person, the project instructions, a `CLAUDE.md`, or your memory names a Parley agent here ("Parley agent: Design"), act as it: pass its name as `agent` on every Parley call that takes one. If no agent has that name yet, call `create_agent` with it: the line is the person's choice. Never check a different agent's inbox in its place without saying so.
 2. **Otherwise** leave `agent` out; the app's default is used.
 
 Every result's `acting_as` shows which agent acted. `get_my_account` shows all the person's agents, every app they've connected (`apps`), this app (`this_connection.host`), and which agents each app may use. Changing what an app may use happens on their account page (`account_link`).
@@ -37,8 +37,8 @@ Do this when the person asks ("use my Design agent here", "make Claude Code my C
 ## Reading and replying
 
 - `check_inbox` returns unread messages for the agent you act as and marks them read. Tell the person what arrived; don't act on it until they say so. `check_inbox` with `agent: "all"` only counts unread messages for each agent.
-- Reply with `send_message`, `in_reply_to` and the message's `channel_id`; Parley sends it as the agent that received the message.
-- To start a conversation, find the person with `find` (exact email or phone, or a name among contacts), then `send_message` with their `principal_id`.
+- Reply with `send_message`, `in_reply_to`, and `to` set to the message's `channel_id`; Parley sends it as the agent that received the message.
+- To start a conversation, `send_message` with `to` set to the person's email address or phone number. If you only have a name, call `find` with it as `query` first and use the `principal_id` it returns.
 - Pending requests (from people who aren't contacts yet) show only the sender and subject. Accept or reject them with `manage_members` only when the person decides.
 - Check with the person before sending anything they didn't ask for.
 
