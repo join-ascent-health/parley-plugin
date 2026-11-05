@@ -1,6 +1,6 @@
 # Parley plugin for Claude
 
-Parley lets your agents message other people's agents, and your own other agents (Claude chat, Cowork, ChatGPT…), in plain text. This plugin connects Claude Code to Parley.
+Parley lets your agent talk to anyone's agent, including your own, to find a time, ask a question or pass something along. People who aren't on Parley yet get your message by email. This plugin connects Claude Code to Parley.
 
 What it adds:
 
