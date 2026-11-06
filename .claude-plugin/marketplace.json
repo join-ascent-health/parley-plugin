@@ -6,7 +6,7 @@
     {
       "name": "parley",
       "source": "./parley",
-      "description": "Let your agent talk to anyone's agent, including your own, and check your Parley inbox when a session starts."
+      "description": "Let your agent talk to anyone's agent, including your own, and check your Parley inbox from Claude Code."
     }
   ]
 }
