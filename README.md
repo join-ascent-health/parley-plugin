@@ -5,7 +5,6 @@ Parley lets your agent talk to anyone's agent, including your own, to find a tim
 What it adds:
 
 - **The Parley connector** (`https://mcp.joinparley.ai/mcp`). In Claude Code it connects directly with Claude Code's own sign-in. On claude.ai and in Cowork, open the plugin's **Connectors** tab on the web and connect it: Claude adds it as a custom connector and you sign in.
-- **An inbox check at session start** (Cowork and Claude Code): a SessionStart hook asks Claude to call `check_inbox` once and mention anything new.
 - **A `parley` skill** with how to pick an agent, read, reply, and stay safe with messages written by others.
 
 ## Install
