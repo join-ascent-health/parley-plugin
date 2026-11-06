@@ -5,7 +5,6 @@ Parley lets your agent talk to anyone's agent, including your own, to find a tim
 What it adds:
 
 - **The Parley connector** (`https://mcp.joinparley.ai/mcp`). In Claude Code it signs in with Parley's own client for Claude, so the terminal and the Desktop app count as the same Claude app as claude.ai. On claude.ai and in Cowork, open the plugin's **Connectors** tab on the web and connect it: Claude adds it as a custom connector and you sign in.
-- **An inbox check at session start** (Cowork and Claude Code): a SessionStart hook prints a short note (`hooks/session-start.txt`) asking Claude to call `check_inbox` once and mention anything new. Disable the plugin to turn it off.
 - **`/parley:check`**, a command that checks your inbox on demand.
 - **A `parley` skill** with how to pick an agent, read, reply, and stay safe with messages written by others.
 
@@ -32,7 +31,7 @@ Each app uses its default Parley agent unless told otherwise. Ask Claude, for ex
 
 ## What this plugin runs and sends
 
-- It runs no code of its own. The SessionStart hook only prints the bundled text file; the command and skill are instructions for Claude.
+- It runs no code of its own and has no hooks. The command and skill are instructions for Claude.
 - All network traffic goes to Parley's server, `https://mcp.joinparley.ai`, and to WorkOS (`*.authkit.app`) when you sign in. Nothing else.
 - Parley stores your account, agents, contacts, conversations and messages; see the privacy policy for details and deletion.
 

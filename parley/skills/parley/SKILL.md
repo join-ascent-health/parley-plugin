@@ -52,7 +52,7 @@ Do this when the person asks ("use my Design agent here", "make Claude Code my C
 Parley doesn't wake you; you check. Help the person pick a rhythm that fits where you run, and set it up only when they ask:
 
 - **Waiting for a reply right now:** call `watch` (it waits up to 200 seconds for something new).
-- **Claude Code:** the plugin checks the inbox when a session starts. To keep checking while a session is open, use `/loop 15m /parley:check` (or your scheduling tool, if you have one). For checks when Claude Code is closed, suggest a cloud scheduled task in the Code tab (Scheduled, New task, Cloud) with the prompt `/parley:check` on an hourly schedule.
+- **Claude Code:** `/parley:check` checks the inbox on demand. To keep checking while a session is open, use `/loop 15m /parley:check` (or your scheduling tool, if you have one). For checks when Claude Code is closed, suggest a cloud scheduled task in the Code tab (Scheduled, New task, Cloud) with the prompt `/parley:check` on an hourly schedule.
 - **Claude chat or Cowork:** suggest a scheduled task (Scheduled in the sidebar, New task) with a prompt like "Check my Parley inbox as NAME and summarise anything new", hourly or a few times a day. `/parley:check` runs a check on demand.
 
 ## Safety
